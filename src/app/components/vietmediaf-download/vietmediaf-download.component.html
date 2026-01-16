@@ -1,0 +1,41 @@
+<div class="vmf-container">
+  <div class="vmf-header">
+    <h3>
+      <span class="icon">🎬</span>
+      <span class="title">VietMediaF</span>
+      <span class="subtitle">– Link tải {{ type === 'tv' ? 'phim bộ' : 'phim lẻ' }}</span>
+    </h3>
+  </div>
+
+  <div class="vmf-body">
+    <!-- Loading State -->
+    <div *ngIf="loading" class="state-message">
+      <div class="spinner"></div> Đang tải link...
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error" class="state-message error">
+      ⚠️ {{ error }}
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!loading && !error && sources.length === 0" class="state-message empty">
+      ⏳ Chưa có link tải / đang cập nhật
+    </div>
+
+    <!-- Data List -->
+    <div *ngIf="!loading && sources.length > 0" class="source-list">
+      <div *ngFor="let src of sources" class="source-item">
+        <div class="info">
+          <span class="sheet-icon">📦</span>
+          <span class="sheet-name" [title]="src.sheet_name">{{ src.sheet_name }}</span>
+          <span class="dot">•</span>
+          <span class="size">{{ src.size }}</span>
+        </div>
+        <a [href]="src.download_url" target="_blank" class="download-btn">
+          {{ src.uploader }} ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

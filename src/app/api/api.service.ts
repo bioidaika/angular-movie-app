@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class ApiService {
   private apiUrl = 'https://api.themoviedb.org/3';
-  private apiKey = ''; // your API key
+  private apiKey = 'db55323b8d3e4154498498a75642b381'; // your API key
   private language = 'en-US';
 
 
@@ -124,6 +124,11 @@ export class ApiService {
     const params = this.buildParams({ query, page: page.toString() });
     return this.http.get(`${this.apiUrl}/search/multi`, { params })
       .pipe(catchError(this.handleError));
+  }
+
+  getVietMediaFLink(id: number, type: string): Observable<any> {
+    const url = `https://vietmediaf.store/api/${type}/${id}`;
+    return this.http.get<any>(url);
   }
 
   private buildParams(params: any): HttpParams {

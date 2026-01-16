@@ -13,6 +13,10 @@
         (click)="setActiveTab('backdrop')">
         Photos
     </button>
+    <button type="button" id="downloads" class="buttonTab" [class.buttonActive]="activeTab === 'downloads'"
+        (click)="setActiveTab('downloads')">
+        Downloads
+    </button>
 </div>
 
 
@@ -34,9 +38,15 @@
     </div>
 </div>
 
+<div *ngIf="activeTab === 'downloads'" id="downloads">
+    <div class="spacing">
+        <app-vietmediaf-download [id]="movie_data.id" [type]="'movie'"></app-vietmediaf-download>
+    </div>
+</div>
+
 
 <app-carousel [title]="'Cast'" [exploreLink]="'/person'" [items]="cast_data" [isExplore]="false" [isCastCarousel]="true"
     [isDefaultCarousel]="false"></app-carousel>
 
-<app-carousel [title]="'More Like This'" [exploreLink]="'/movie'" [isExplore]="true" [items]="recom_data" [canNavigateLeft]="true"
-    [canNavigateRight]="true"></app-carousel>
+<app-carousel [title]="'More Like This'" [exploreLink]="'/movie'" [isExplore]="true" [items]="recom_data"
+    [canNavigateLeft]="true" [canNavigateRight]="true"></app-carousel>

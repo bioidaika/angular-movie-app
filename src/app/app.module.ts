@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; 
-import { CommonModule } from '@angular/common'; 
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -48,6 +48,7 @@ import { LanguageNamePipe } from './components/global/pipe/language-name.pipe';
 import { EpisodesComponent } from './components/global/episodes/episodes.component';
 import { ModalComponent } from './components/global/modal/modal.component';
 import { SafeUrlPipe } from './components/global/pipe/safe-url.pipe';
+import { VietMediafDownloadComponent } from './components/vietmediaf-download/vietmediaf-download.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { SafeUrlPipe } from './components/global/pipe/safe-url.pipe';
     EpisodesComponent,
     ModalComponent,
     SafeUrlPipe,
+    VietMediafDownloadComponent,
   ],
   imports: [
     BrowserModule,
