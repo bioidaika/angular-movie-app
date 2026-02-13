@@ -39,7 +39,7 @@
 </div>
 
 <div *ngIf="activeTab === 'downloads'" id="downloads">
-    <div class="spacing">
+    <div class="spacing" *ngIf="movie_data">
         <app-vietmediaf-download [id]="movie_data.id" [type]="'movie'"></app-vietmediaf-download>
     </div>
 </div>
